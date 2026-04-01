@@ -15,7 +15,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'SkyPulse — Live Weather',
   description: 'Beautiful, animated weather forecasts by zip code. Powered by Open-Meteo.',
-  keywords: ['weather', 'forecast', 'zip code', 'temperature'],
+  keywords: ['weather', 'forecast', 'zip code', 'temperature', 'SkyPulse'],
+  openGraph: {
+    title: 'SkyPulse — Live Weather',
+    description: 'Enter a US zip code for instant current conditions and 7-day forecast.',
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SkyPulse — Live Weather',
+    description: 'Enter a US zip code for instant current conditions and 7-day forecast.',
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
