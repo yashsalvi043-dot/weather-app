@@ -36,14 +36,14 @@ export default function SearchBar({ onSearch, loading }: SearchBarProps) {
         fullWidth
         value={zip}
         onChange={(e) => {
-          const v = e.target.value.replace(/\D/g, '').slice(0, 5);
+          const v = e.target.value.replace(/\D/g, '').slice(0, 6);
           setZip(v);
           if (touched && isValidZip(v)) setTouched(false);
         }}
         onBlur={() => setTouched(true)}
-        placeholder="Enter zip code (e.g. 02101)"
+        placeholder="Enter zip/pin code (e.g. 02101, 400001)"
         error={isInvalid}
-        helperText={isInvalid ? 'Enter a valid 5-digit zip code' : ' '}
+        helperText={isInvalid ? 'Enter a valid 5-digit US zip or 6-digit India pin' : ' '}
         disabled={loading}
         slotProps={{
           input: {
@@ -67,7 +67,7 @@ export default function SearchBar({ onSearch, loading }: SearchBarProps) {
           htmlInput: {
             inputMode: 'numeric' as const,
             pattern: '[0-9]*',
-            maxLength: 5,
+            maxLength: 6,
             'aria-label': 'Zip code',
           },
         }}

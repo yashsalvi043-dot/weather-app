@@ -1,10 +1,12 @@
 import type { GeoLocation, ZippopotamResponse } from './types';
 
-const ZIPPOPOTAM_BASE = 'https://api.zippopotam.us/us';
+const ZIPPOPOTAM_US = 'https://api.zippopotam.us/us';
+const ZIPPOPOTAM_IN = 'https://api.zippopotam.us/in';
 const GEOCODING_BASE = 'https://geocoding-api.open-meteo.com/v1/search';
 
 export async function geocodeZip(zip: string): Promise<GeoLocation> {
-  const res = await fetch(`${ZIPPOPOTAM_BASE}/${zip}`, {
+  const base = zip.length === 6 ? ZIPPOPOTAM_IN : ZIPPOPOTAM_US;
+  const res = await fetch(`${base}/${zip}`, {
     next: { revalidate: 86400 }, // Cache zip lookups for 24h
   });
 

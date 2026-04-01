@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
 
   if (!zip || !isValidZip(zip)) {
     return NextResponse.json(
-      { error: 'Invalid zip code. Provide a 5-digit US zip.' },
+      { error: 'Invalid code. Provide a 5-digit US zip or 6-digit India pin.' },
       { status: 400 },
     );
   }
