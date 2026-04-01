@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+}
+
+@layer base {
+  :root {
+    --gradient-sunny: linear-gradient(135deg, #4A90D9 0%, #87CEEB 100%);
+    --gradient-cloudy: linear-gradient(135deg, #8E9EAB 0%, #B8C6DB 100%);
+    --gradient-rain: linear-gradient(135deg, #373B44 0%, #4286F4 100%);
+    --gradient-snow: linear-gradient(135deg, #E6DADA 0%, #274046 100%);
+    --gradient-thunderstorm: linear-gradient(135deg, #0F2027 0%, #2C5364 100%);
+    --gradient-fog: linear-gradient(135deg, #757F9A 0%, #D7DDE8 100%);
+    --gradient-night: linear-gradient(135deg, #0F0C29 0%, #302B63 100%);
+
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-blur: 20px;
+  }
+
+  body {
+    @apply antialiased text-white;
+    min-height: 100dvh;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
